@@ -3,7 +3,7 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-export const env = {
+export const config = {
   port: process.env.PORT || 3000,
   db: {
     host: process.env.DB_HOST || "localhost",
@@ -12,5 +12,5 @@ export const env = {
     pass: process.env.DB_PASS || "password",
     name: process.env.DB_NAME || "api_medica",
   },
-  jwtSecret: process.env.JWT_SECRET || "supersecreto",
+  JWT_SECRET: process.env.JWT_SECRET || "supersecreto",
 };
