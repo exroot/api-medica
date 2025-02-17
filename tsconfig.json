@@ -6,13 +6,19 @@
     "rootDir": "./src",
     "outDir": "./dist",
     "strict": true,
+    "types": ["jest"],
     "paths": {
       "@config/*": ["config/*"],
       "@modules/*": ["modules/*"],
       "@middlewares/*": ["middlewares/*"],
       "@utils/*": ["utils/*"]
     },
-    "esModuleInterop": true /* Skip type checking all .d.ts files. */
+    "esModuleInterop": true /* Skip type checking all .d.ts files. */,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "typeRoots": [
+      "node_modules/@types" // Asegúrate de que esta línea esté presente
+    ]
   },
   "exclude": ["node_modules", "jest.config.ts"]
 }
