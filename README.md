@@ -20,18 +20,35 @@ Para levantar la aplicación con Docker, ejecuta el siguiente comando en la raí
 docker-compose up --build
 ```
 
-### Lo que contiene este `README.md` actualizado:
+### 1.2. **Ejecutar tests unitarios con docker y jest**
 
-1. **Ejecución en Docker**: Instrucciones detalladas sobre cómo construir y ejecutar los contenedores con `docker-compose`, cómo acceder a la API y cómo detener los contenedores.
+```bash
+docker exec -it api-medica_api_1 bash
+yarn test
+```
 
-2. **Ejecución de Tests**:
+## 2. **Ejecutar la aplicación manualmente con node.js**
 
-   - Cómo ejecutar los tests dentro del contenedor Docker.
-   - Cómo ejecutar los tests automáticamente al levantar los contenedores.
-   - Cómo ejecutar los tests desde tu entorno local (sin Docker).
+### 2.1. **Instalar dependencias, generar build y ejecutar proyecto**
 
-3. **Documentación con Swagger**: Guía sobre cómo integrar Swagger para generar y ver la documentación de la API de manera interactiva.
+Para levantar la base de datos, ejecutar, importar o copiar y pegar el contenido de database.sql que se encuentra ubicado en la raíz del proyecto.
 
-4. **Comandos útiles**: Incluye los comandos más relevantes para gestionar los contenedores y ejecutar los tests.
+```bash
+database.sql
+```
 
-Con esto, ahora puedes ejecutar los tests en Docker o de manera local, y tener la documentación de tu API usando Swagger. ¡Déjame saber si necesitas algún ajuste adicional!
+### 2.2. **Instalar dependencias, generar build y ejecutar proyecto**
+
+Para levantar la aplicación con Node.js verifica que la version es v20.10 o superior y ejecuta el siguiente comando en la raíz del proyecto:
+
+```bash
+yarn install
+yarn build
+yarn start
+```
+
+### 2.3. **Ejecutar tests unitarios con jest**
+
+```bash
+yarn test
+```
