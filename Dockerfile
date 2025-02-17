@@ -5,10 +5,10 @@ FROM node:20
 WORKDIR /app
 
 # Copia los archivos de dependencias antes de la aplicación para aprovechar la caché de Docker
-COPY package.json package-lock.json ./
+COPY package.json yarn.lock ./
 
-# Instala las dependencias
-RUN npm install
+# Instala las dependencias con Yarn
+RUN yarn install
 
 # Copia todo el código fuente dentro del contenedor
 COPY . .
@@ -16,5 +16,5 @@ COPY . .
 # Expone el puerto 3000 para acceder a la API
 EXPOSE 3000
 
-# Comando por defecto para ejecutar la aplicación
-CMD ["npm", "run", "dev"]
+# Comando por defecto para ejecutar la aplicación con Yarn
+CMD ["yarn", "dev"]

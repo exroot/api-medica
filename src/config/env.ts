@@ -7,8 +7,8 @@ export const config = {
   port: process.env.PORT || 3000,
   db: {
     host: process.env.DB_HOST || "localhost",
-    port: Number(process.env.DB_PORT) || 5432,
-    user: process.env.DB_USER || "postgres",
+    port: Number(process.env.DB_PORT) || 3306,
+    user: process.env.DB_USER || "root",
     pass: process.env.DB_PASS || "password",
     name: process.env.DB_NAME || "api_medica",
   },

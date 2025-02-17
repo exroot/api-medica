@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from "express";
 import jwt from "jsonwebtoken";
-import { config } from "config/env"; // Configuración con la clave secreta JWT
+import { config } from "@config/env"; // Configuración con la clave secreta JWT
 
 export interface AuthRequest extends Request {
   user?: any; // Agregando el usuario autenticado a la request

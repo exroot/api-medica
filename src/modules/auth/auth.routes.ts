@@ -1,7 +1,10 @@
 import { Router } from "express";
 import { inject, injectable } from "inversify";
 import { AuthController } from "@modules/auth/auth.controller";
-import { validateUser } from "@middlewares/userValidation.middleware";
+import {
+  validateRegisterUser,
+  validateLoginUser,
+} from "@middlewares/userValidation.middleware";
 import TYPES from "@config/types";
 
 @injectable()
@@ -16,7 +19,11 @@ export class AuthRoutes {
   }
 
   private initializeRoutes() {
-    this.router.post("/login", this.authController.login);
-    this.router.post("/register", validateUser, this.authController.register);
+    this.router.post("/login", validateLoginUser, this.authController.login);
+    this.router.post(
+      "/register",
+      validateRegisterUser,
+      this.authController.register
+    );
   }
 }

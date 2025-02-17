@@ -9,7 +9,7 @@ import bcrypt from "bcryptjs";
 export class AuthService {
   private usuarioRepository: UsuarioRepository;
   constructor(
-    @inject(TYPES.UsuarioRepository) usuarioRepository: UsuarioRepository
+    @inject(TYPES.TypeORMUsuarioRepository) usuarioRepository: UsuarioRepository
   ) {
     this.usuarioRepository = usuarioRepository;
   }

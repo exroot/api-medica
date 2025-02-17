@@ -7,7 +7,9 @@ import TYPES from "@config/types";
 export class UsuarioRepository {
   private repo: Repository<Usuario>;
 
-  constructor(@inject(TYPES.UsuarioRepository) repo: Repository<Usuario>) {
+  constructor(
+    @inject(TYPES.TypeORMUsuarioRepository) repo: Repository<Usuario>
+  ) {
     this.repo = repo;
   }
 

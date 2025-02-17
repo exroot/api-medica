@@ -6,7 +6,12 @@ import {
   CreateDateColumn,
   UpdateDateColumn,
 } from "typeorm";
-import { Cita } from "@modules/citas/citas.model";
+import { Cita } from "@modules/citas/citas.model"; // Relación con el modelo de citas
+
+export enum RolUsuario {
+  PACIENTE = "paciente",
+  MEDICO = "medico",
+}
 
 @Entity("usuarios")
 export class Usuario {
@@ -19,8 +24,14 @@ export class Usuario {
   @Column({ type: "varchar", length: 100, unique: true })
   email!: string;
 
-  @OneToMany(() => Cita, (cita) => cita.usuario)
-  citas!: Cita[]; // Relación con Citas
+  @OneToMany(() => Cita, (cita) => cita.paciente) // Relación con citas del paciente
+  citasPaciente!: Cita[];
+
+  @OneToMany(() => Cita, (cita) => cita.doctor) // Relación con citas del doctor
+  citasDoctor!: Cita[];
+
+  @Column({ type: "enum", enum: RolUsuario, default: RolUsuario.PACIENTE })
+  rol!: RolUsuario;
 
   @Column({ type: "varchar", length: 255 })
   password!: string;

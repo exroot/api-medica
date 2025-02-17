@@ -5,7 +5,7 @@ import { authMiddleware } from "@modules/auth/auth.middleware";
 import TYPES from "@config/types";
 
 @injectable()
-export class CitasRoutes {
+export class CitaRoutes {
   public router: Router;
   private citaController: CitaController;
 
